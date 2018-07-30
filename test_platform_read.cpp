@@ -41,7 +41,7 @@ int main(int argc, char *argv[]) {
             
                 double timeTotal = ((double) std::chrono::duration_cast<std::chrono::milliseconds>(endTime - startTime).count()) / 1000.0;
 
-                std::cout << "count per s recent: " << checkNum - lastCheckNum << "\ttotal count: " 
+                std::cout << "count per s recent:  " << checkNum - lastCheckNum << "\ttotal count: " 
                           << checkNum - initialCheckNum << "\t\ttotal time (s): " << round(timeTotal) 
                           << "\t\tavg count per s: " <<  (checkNum - initialCheckNum) / timeTotal <<  std::endl;
         
