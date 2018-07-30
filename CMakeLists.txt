@@ -44,3 +44,14 @@ else()
 endif()
 
 target_link_libraries(test_platform_read_linux_socket Threads::Threads)
+
+add_executable(test_canutils_linux_socket ${PROJECT_SOURCE_DIR}/test_canutils.cpp)
+if (${CMAKE_LIBRARY_ARCHITECTURE} STREQUAL "arm-linux-gnueabihf") # Jetson TK1 / Pi
+    target_link_libraries(test_canutils_linux_socket ${CMAKE_SOURCE_DIR}/lib/raspberry/libCTRE_PhoenixPlatformLinuxSocketCan.a)
+    target_link_libraries(test_canutils_linux_socket ${CMAKE_SOURCE_DIR}/lib/raspberry/libCTRE_PhoenixCanutils.a)
+else()
+    target_link_libraries(test_canutils_linux_socket ${CMAKE_SOURCE_DIR}/lib/x86-64/libCTRE_PhoenixPlatformLinuxSocketCan.a)
+    target_link_libraries(test_canutils_linux_socket ${CMAKE_SOURCE_DIR}/lib/x86-64/libCTRE_PhoenixCanutils.a)
+endif()
+
+target_link_libraries(test_canutils_linux_socket Threads::Threads)
