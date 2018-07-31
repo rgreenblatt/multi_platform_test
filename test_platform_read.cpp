@@ -15,7 +15,9 @@
 int main(int argc, char *argv[]) {
 
     ctre::phoenix::platform::can::SetCANInterface(argv[1]);
-    
+   
+    bool printElse = argc <= 2 || (argv[2][0] - '0');
+ 
     uint64_t lastCheckNum = 0;
     
     uint64_t initialCheckNum = 0;
@@ -57,7 +59,7 @@ int main(int argc, char *argv[]) {
                 lastCheckNum = checkNum;
             }
         }
-        else {
+        else if(printElse) {
             std::cout << "else on bus" << std::endl;
         }
     }
