@@ -139,7 +139,7 @@ int main(int argc, char *argv[]) {
         std::memcpy(&checkVal, data, size); 
 
         if(checkVal != val || size != 8 || stampLast >= stamp) {
-            std::cout << "BAD DATA: " << checkVal << " SIZE: " << unsigned(size) << " STAMP: " << stamp << " STAMPLAST: " << stamp << std::endl;
+            std::cout << "BAD DATA: " << checkVal << " SIZE: " << unsigned(size) << " STAMP: " << stamp << " STAMPLAST: " << stampLast << std::endl;
 
         }
     }
